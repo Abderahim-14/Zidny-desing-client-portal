@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Zidny — Color tokens
+   Palette evokes clarity, optimism and forward-thinking. Sky Blue is the
+   hero; deep navy anchors; cyans/aqua carry the airy "glass" surfaces.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand scale (raw) ------------------------------------------------ */
+  --color-sky-blue:      #2AA4E7; /* core brand — logo, buttons, CTAs */
+  --color-primary-blue:  #0A60AD; /* links, hover, illustration accents, gradients */
+  --color-deep-navy:     #0C224B; /* headings, strong accents, dark surfaces */
+  --color-aqua-tint:     #A9EFFB; /* soft UI sections, info cards, input fields */
+  --color-pale-cyan:     #E9FCFF; /* section backgrounds, light cards */
+  --color-warm-cream:    #FFFAE6; /* warm highlight to contrast the blues */
+  --color-light-gray:    #E8EBEF; /* neutral backgrounds, dividers, borders */
+  --color-white:         #FFFFFF;
+
+  /* ---- Extended sky-blue ramp (derived, for states & depth) ------------- */
+  --sky-50:   #EAF6FD;
+  --sky-100:  #CFEAFA;
+  --sky-200:  #A9DAF5;
+  --sky-300:  #76C4EF;
+  --sky-400:  #4FB2EB;
+  --sky-500:  #2AA4E7; /* = Sky Blue */
+  --sky-600:  #1B86C7;
+  --sky-700:  #0A60AD; /* = Primary Blue */
+  --sky-800:  #0B4A82;
+  --sky-900:  #0C224B; /* = Deep Navy */
+
+  /* ---- Neutral ramp ----------------------------------------------------- */
+  --neutral-0:    #FFFFFF;
+  --neutral-50:   #F7F9FB;
+  --neutral-100:  #EEF1F5;
+  --neutral-150:  #E8EBEF; /* = Light Gray */
+  --neutral-200:  #DCE1E8;
+  --neutral-300:  #C2CAD6;
+  --neutral-400:  #9AA5B5;
+  --neutral-500:  #6B7688;
+  --neutral-600:  #4C5667;
+  --neutral-700:  #34404F;
+  --neutral-800:  #1E2A3A;
+  --neutral-900:  #0C224B; /* = Deep Navy */
+
+  /* ---- Semantic: text --------------------------------------------------- */
+  --text-strong:    var(--color-deep-navy);   /* headings */
+  --text-body:      #1E2A3A;                   /* default body */
+  --text-muted:     #5A6678;                   /* secondary / captions */
+  --text-subtle:    #8A96A6;                   /* tertiary / placeholders */
+  --text-on-brand:  #FFFFFF;                   /* text over sky/navy fills */
+  --text-link:      var(--color-primary-blue);
+
+  /* ---- Semantic: surfaces ---------------------------------------------- */
+  --surface-page:      #F4FAFE;  /* app canvas — barely-there cyan wash */
+  --surface-card:      #FFFFFF;
+  --surface-soft:      var(--color-pale-cyan);
+  --surface-info:      var(--color-aqua-tint);
+  --surface-cream:     var(--color-warm-cream);
+  --surface-navy:      var(--color-deep-navy);
+  --surface-sunken:    #EDF3F8;
+
+  /* ---- Semantic: lines ------------------------------------------------- */
+  --border-subtle:   var(--color-light-gray);
+  --border-default:  #DCE1E8;
+  --border-strong:   #C2CAD6;
+  --divider:         #E8EBEF;
+
+  /* ---- Brand / interactive --------------------------------------------- */
+  --brand:            var(--color-sky-blue);
+  --brand-hover:      var(--sky-600);
+  --brand-active:     var(--color-primary-blue);
+  --brand-soft:       var(--sky-50);
+  --focus-ring:       rgba(42, 164, 231, 0.45);
+
+  /* ---- Status ---------------------------------------------------------- */
+  --success:        #1FA971;
+  --success-soft:   #E4F7EF;
+  --warning:        #E8A33D;
+  --warning-soft:   #FFF4E0;
+  --danger:         #E4564E;
+  --danger-soft:    #FBE9E8;
+  --info:           var(--color-sky-blue);
+  --info-soft:      var(--color-pale-cyan);
+
+  /* ---- Brand gradients -------------------------------------------------- */
+  --gradient-sky:    linear-gradient(135deg, #2AA4E7 0%, #0A60AD 100%); /* @kind color */
+  --gradient-aqua:   linear-gradient(135deg, #A9EFFB 0%, #2AA4E7 100%); /* @kind color */
+  --gradient-deep:   linear-gradient(160deg, #0A60AD 0%, #0C224B 100%); /* @kind color */
+  --gradient-wash:   linear-gradient(180deg, #FFFFFF 0%, #E9FCFF 100%); /* @kind color */
+
+  /* ---- Glass tint sources (used by effects.css) ------------------------ */
+  --glass-tint-light:  255, 255, 255;   /* @kind other */
+  --glass-tint-cyan:   233, 252, 255;   /* @kind other */
+  --glass-tint-navy:   12, 34, 75;      /* @kind other */
+}

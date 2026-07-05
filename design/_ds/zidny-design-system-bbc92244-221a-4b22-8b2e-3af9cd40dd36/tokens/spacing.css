@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Zidny — Spacing, radii & layout tokens
+   8pt-based rhythm. Generous, airy spacing supports the light glass look.
+   ========================================================================== */
+
+:root {
+  /* ---- Spacing scale (8pt base, with 2/4 micro-steps) ------------------ */
+  --space-0:   0;
+  --space-1:   2px;
+  --space-2:   4px;
+  --space-3:   8px;
+  --space-4:   12px;
+  --space-5:   16px;
+  --space-6:   20px;
+  --space-7:   24px;
+  --space-8:   32px;
+  --space-9:   40px;
+  --space-10:  48px;
+  --space-11:  64px;
+  --space-12:  80px;
+  --space-13:  96px;
+  --space-14:  128px;
+
+  /* ---- Radii — soft, Apple-like rounding -------------------------------- */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   14px;   /* default control radius */
+  --radius-lg:   20px;   /* cards */
+  --radius-xl:   28px;   /* feature panels, glass surfaces */
+  --radius-2xl:  36px;
+  --radius-pill: 999px;  /* chips, avatars, pills */
+  --radius-round: 50%;
+
+  /* ---- Container widths ------------------------------------------------- */
+  --container-sm:  640px;
+  --container-md:  840px;
+  --container-lg:  1080px;
+  --container-xl:  1280px;
+  --container-2xl: 1440px;
+
+  /* ---- Z-index ladder --------------------------------------------------- */
+  --z-base:     0;   /* @kind other */
+  --z-raised:   10;  /* @kind other */
+  --z-sticky:   100; /* @kind other */
+  --z-overlay:  900; /* @kind other */
+  --z-modal:    1000; /* @kind other */
+  --z-toast:    1100; /* @kind other */
+  --z-tooltip:  1200; /* @kind other */
+}

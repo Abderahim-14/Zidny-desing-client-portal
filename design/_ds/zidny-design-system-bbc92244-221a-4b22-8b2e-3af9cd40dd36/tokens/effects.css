@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Zidny — Effects: glass, shadows, blur, motion
+   This is the heart of the Zidny look: Apple "liquid glass" — translucent
+   frosted surfaces, soft layered shadows, generous backdrop blur, and a
+   bright specular hairline on top edges.
+   ========================================================================== */
+
+:root {
+  /* ---- Backdrop blur strengths ----------------------------------------- */
+  --blur-xs:  6px;
+  --blur-sm:  12px;
+  --blur-md:  20px;   /* default glass */
+  --blur-lg:  32px;
+  --blur-xl:  48px;
+
+  /* ---- Glass fills (translucent tints) --------------------------------- */
+  --glass-light:    rgba(255, 255, 255, 0.55);   /* on busy/photo bgs */
+  --glass-light-hi: rgba(255, 255, 255, 0.72);   /* more opaque card */
+  --glass-cyan:     rgba(233, 252, 255, 0.55);
+  --glass-aqua:     rgba(169, 239, 251, 0.40);
+  --glass-navy:     rgba(12, 34, 75, 0.55);      /* dark glass over bright bg */
+  --glass-navy-hi:  rgba(12, 34, 75, 0.72);
+
+  /* ---- Glass hairlines (the bright/dark edge that sells the material) --- */
+  --glass-border-light: rgba(255, 255, 255, 0.65);
+  --glass-border-soft:  rgba(255, 255, 255, 0.35);
+  --glass-border-navy:  rgba(255, 255, 255, 0.14);
+  --glass-inner-top:    inset 0 1px 0 rgba(255, 255, 255, 0.6);   /* @kind shadow */
+  --glass-inner-bottom: inset 0 -1px 0 rgba(12, 34, 75, 0.04);     /* @kind shadow */
+
+  /* ---- Elevation shadows (soft, blue-cast, never harsh black) ----------- */
+  --shadow-xs:  0 1px 2px rgba(12, 34, 75, 0.06);
+  --shadow-sm:  0 2px 8px rgba(12, 34, 75, 0.08);
+  --shadow-md:  0 8px 24px rgba(12, 34, 75, 0.10);
+  --shadow-lg:  0 18px 48px rgba(12, 34, 75, 0.14);
+  --shadow-xl:  0 32px 80px rgba(12, 34, 75, 0.18);
+
+  /* Glass cards combine a drop shadow + the specular inner top hairline */
+  --shadow-glass:    0 12px 40px rgba(12, 34, 75, 0.12), var(--glass-inner-top);
+  --shadow-glass-lg: 0 28px 70px rgba(12, 34, 75, 0.18), var(--glass-inner-top);
+
+  /* Brand-tinted glow for hero CTAs and focus moments */
+  --glow-brand: 0 8px 28px rgba(42, 164, 231, 0.40);
+  --glow-aqua:  0 0 0 6px rgba(169, 239, 251, 0.35);
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);   /* @kind other */
+  --ease-emphasis: cubic-bezier(0.34, 1.56, 0.64, 1);   /* @kind other */
+  --ease-in-out:   cubic-bezier(0.45, 0, 0.55, 1);      /* @kind other */
+  --duration-fast: 120ms;  /* @kind other */
+  --duration-base: 220ms;  /* @kind other */
+  --duration-slow: 360ms;  /* @kind other */
+}
+
+/* ==========================================================================
+   Glass utility classes — convenience helpers consumers may use directly.
+   Components reference the tokens above rather than these classes.
+   ========================================================================== */
+
+.z-glass {
+  background: var(--glass-light);
+  -webkit-backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  backdrop-filter: blur(var(--blur-md)) saturate(180%);
+  border: 1px solid var(--glass-border-light);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-xl);
+}
+
+.z-glass--cyan {
+  background: var(--glass-cyan);
+}
+
+.z-glass--navy {
+  background: var(--glass-navy);
+  border-color: var(--glass-border-navy);
+  color: var(--text-on-brand);
+}
+
+.z-glass--strong {
+  background: var(--glass-light-hi);
+  -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(200%);
+  backdrop-filter: blur(var(--blur-lg)) saturate(200%);
+}

@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Zidny — Webfonts
+   Outfit is the single brand typeface (geometric, optimistic, modern).
+   The Bold (700) weight is self-hosted from the uploaded TTF; the remaining
+   weights load from Google Fonts. If you need a fully self-hosted set,
+   drop the other Outfit weights into assets/fonts/ and add @font-face rules.
+   ========================================================================== */
+
+/* Full Outfit family (300–800) from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* Self-hosted Bold (uploaded brand file) — authoritative for headings */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Outfit-Bold.ttf') format('truetype');
+}

@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# env
+.env
+.env.local
+.env.*.local
+
+# editor local-history snapshots (VS Code "Local History" extension) --
+# these are verbatim copies of every saved file, including past .env
+# contents (real Supabase keys). Never let these reach a commit.
+.history/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+.vercel
+*.tsbuildinfo

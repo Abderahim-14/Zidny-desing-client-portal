@@ -1,0 +1,416 @@
+/* Zidny design tokens -- transcribed verbatim from
+   design/_ds/.../tokens/{colors,typography,spacing,effects}.css, the CSS
+   that design/Zidny Workflow - Primitives.dc.html and
+   - Admin.dc.html both depend on. Do not hand-edit values here without
+   checking those source files -- this is the visual/token reference per
+   CLAUDE.md #5. */
+
+:root {
+  /* Brand scale (raw) */
+  --color-sky-blue: #2AA4E7;
+  --color-primary-blue: #0A60AD;
+  --color-deep-navy: #0C224B;
+  --color-aqua-tint: #A9EFFB;
+  --color-pale-cyan: #E9FCFF;
+  --color-warm-cream: #FFFAE6;
+  --color-light-gray: #E8EBEF;
+  --color-white: #FFFFFF;
+
+  /* Extended sky-blue ramp */
+  --sky-50: #EAF6FD;
+  --sky-100: #CFEAFA;
+  --sky-200: #A9DAF5;
+  --sky-300: #76C4EF;
+  --sky-400: #4FB2EB;
+  --sky-500: #2AA4E7;
+  --sky-600: #1B86C7;
+  --sky-700: #0A60AD;
+  --sky-800: #0B4A82;
+  --sky-900: #0C224B;
+
+  /* Neutral ramp */
+  --neutral-0: #FFFFFF;
+  --neutral-50: #F7F9FB;
+  --neutral-100: #EEF1F5;
+  --neutral-150: #E8EBEF;
+  --neutral-200: #DCE1E8;
+  --neutral-300: #C2CAD6;
+  --neutral-400: #9AA5B5;
+  --neutral-500: #6B7688;
+  --neutral-600: #4C5667;
+  --neutral-700: #34404F;
+  --neutral-800: #1E2A3A;
+  --neutral-900: #0C224B;
+
+  /* Semantic: text */
+  --text-strong: var(--color-deep-navy);
+  --text-body: #1E2A3A;
+  --text-muted: #5A6678;
+  --text-subtle: #8A96A6;
+  --text-on-brand: #FFFFFF;
+  --text-link: var(--color-primary-blue);
+
+  /* Semantic: surfaces */
+  --surface-page: #F4FAFE;
+  --surface-card: #FFFFFF;
+  --surface-soft: var(--color-pale-cyan);
+  --surface-info: var(--color-aqua-tint);
+  --surface-cream: var(--color-warm-cream);
+  --surface-navy: var(--color-deep-navy);
+  --surface-sunken: #EDF3F8;
+
+  /* Semantic: lines */
+  --border-subtle: var(--color-light-gray);
+  --border-default: #DCE1E8;
+  --border-strong: #C2CAD6;
+  --divider: #E8EBEF;
+
+  /* Brand / interactive */
+  --brand: var(--color-sky-blue);
+  --brand-hover: var(--sky-600);
+  --brand-active: var(--color-primary-blue);
+  --brand-soft: var(--sky-50);
+  --focus-ring: rgba(42, 164, 231, 0.45);
+
+  /* Status */
+  --success: #1FA971;
+  --success-soft: #E4F7EF;
+  --warning: #E8A33D;
+  --warning-soft: #FFF4E0;
+  --danger: #E4564E;
+  --danger-soft: #FBE9E8;
+  --info: var(--color-sky-blue);
+  --info-soft: var(--color-pale-cyan);
+
+  /* Brand gradients */
+  --gradient-sky: linear-gradient(135deg, #2AA4E7 0%, #0A60AD 100%);
+  --gradient-aqua: linear-gradient(135deg, #A9EFFB 0%, #2AA4E7 100%);
+  --gradient-deep: linear-gradient(160deg, #0A60AD 0%, #0C224B 100%);
+  --gradient-wash: linear-gradient(180deg, #FFFFFF 0%, #E9FCFF 100%);
+
+  /* Typography */
+  --font-sans: var(--font-outfit), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extra: 800;
+
+  --text-2xs: 11px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-md: 18px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 30px;
+  --text-3xl: 38px;
+  --text-4xl: 48px;
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Spacing / radius / layout */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+  --radius-pill: 999px;
+
+  /* Effects */
+  --shadow-xs: 0 1px 2px rgba(12, 34, 75, 0.06);
+  --shadow-sm: 0 2px 8px rgba(12, 34, 75, 0.08);
+  --shadow-md: 0 8px 24px rgba(12, 34, 75, 0.10);
+  --shadow-lg: 0 18px 48px rgba(12, 34, 75, 0.14);
+  --glow-brand: 0 8px 28px rgba(42, 164, 231, 0.40);
+
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+  --duration-slow: 360ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text-body);
+  background: var(--surface-page);
+}
+
+/* ---- Base component library (design/_ds/.../styles/components.css) ---- */
+
+.z-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  line-height: 1;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    background var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard);
+}
+.z-btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+.z-btn:disabled,
+.z-btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+.z-btn--sm {
+  height: 36px;
+  padding: 0 14px;
+  font-size: var(--text-xs);
+}
+.z-btn--lg {
+  height: 54px;
+  padding: 0 28px;
+  font-size: var(--text-base);
+}
+.z-btn--block {
+  display: flex;
+  width: 100%;
+}
+
+.z-btn--primary {
+  background: var(--color-sky-blue);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(42, 164, 231, 0.32);
+}
+.z-btn--primary:hover:not(:disabled) {
+  background: var(--brand-hover);
+  box-shadow: var(--glow-brand);
+}
+.z-btn--secondary {
+  background: var(--sky-50);
+  color: var(--color-primary-blue);
+  border-color: var(--sky-100);
+}
+.z-btn--secondary:hover:not(:disabled) {
+  background: var(--sky-100);
+  border-color: var(--sky-200);
+}
+.z-btn--ghost {
+  background: transparent;
+  color: var(--color-primary-blue);
+}
+.z-btn--ghost:hover:not(:disabled) {
+  background: var(--sky-50);
+}
+.z-btn--danger {
+  background: var(--danger);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(228, 86, 78, 0.3);
+}
+.z-btn--danger:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.z-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-2xs);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.z-badge--neutral {
+  background: var(--neutral-100);
+  color: var(--text-muted);
+}
+.z-badge--brand {
+  background: var(--sky-50);
+  color: var(--color-primary-blue);
+}
+.z-badge--solid {
+  background: var(--color-sky-blue);
+  color: #fff;
+}
+.z-badge--success {
+  background: var(--success-soft);
+  color: var(--success);
+}
+.z-badge--warning {
+  background: var(--warning-soft);
+  color: #9A6A12;
+}
+.z-badge--danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.z-progress {
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--neutral-150);
+  overflow: hidden;
+}
+.z-progress__fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-sky);
+  transition: width var(--duration-slow) var(--ease-standard);
+}
+
+/* ---- Page-local primitive classes (Admin.dc.html sizing -- see
+   design extraction notes: chip/lbl sizes differ slightly between
+   Primitives.dc.html and Admin.dc.html; Admin's is what actually ships) --- */
+
+.zx-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 11px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.zx-chip .zx-dot {
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+.zx-chip .zx-ico {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  stroke: currentColor;
+}
+
+.zx-note {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.zx-lbl {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.zx-sel {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-body);
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  height: 36px;
+  padding: 0 32px 0 14px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235A6678' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+.zx-sel:focus {
+  outline: none;
+  border-color: var(--color-sky-blue);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.zx-input {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  color: var(--text-body);
+  width: 100%;
+  box-sizing: border-box;
+}
+.zx-input:focus {
+  outline: none;
+  border-color: var(--color-sky-blue);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+.zx-input::placeholder {
+  color: var(--text-subtle);
+}
+
+.zx-navitem {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 13px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--duration-base) var(--ease-standard);
+  border: none;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+}
+
+.zx-row {
+  transition: background var(--duration-fast) var(--ease-standard);
+}
+.zx-row:hover {
+  background: var(--surface-page) !important;
+}
+
+.zx-stagerow:hover .zx-expandhint {
+  color: var(--color-sky-blue);
+}

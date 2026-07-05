@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/tokens/colors.css">
+<link rel="stylesheet" href="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/tokens/typography.css">
+<link rel="stylesheet" href="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/tokens/effects.css">
+<link rel="stylesheet" href="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/tokens/base.css">
+<link rel="stylesheet" href="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/styles/components.css">
+<link rel="stylesheet" href="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/styles.css">
+<script src="_ds/zidny-design-system-bbc92244-221a-4b22-8b2e-3af9cd40dd36/_ds_bundle.js"></script>
+<style>
+  .zx-chip { display:inline-flex; align-items:center; gap:7px; height:26px; padding:0 12px; border-radius:var(--radius-pill); font-family:'Outfit',sans-serif; font-size:12.5px; font-weight:600; letter-spacing:.01em; line-height:1; white-space:nowrap; border:1px solid transparent; }
+  .zx-chip .zx-dot { width:7px; height:7px; border-radius:50%; background:currentColor; flex:none; }
+  .zx-chip .zx-ico { width:13px; height:13px; flex:none; stroke:currentColor; }
+  .zx-swatch { display:flex; flex-direction:column; gap:10px; padding:18px; border-radius:var(--radius-lg); background:var(--surface-card); border:1px solid var(--border-subtle); box-shadow:var(--shadow-xs); }
+  .zx-note { font-family:'Outfit',sans-serif; font-size:12px; color:var(--text-muted); line-height:1.45; }
+  .zx-lbl { font-family:'Outfit',sans-serif; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-subtle); }
+</style>
+</helmet>
+<div style="min-height:100vh; background:var(--surface-page); font-family:'Outfit',sans-serif; color:var(--text-body); padding:48px 56px 80px;">
+
+  <!-- Masthead -->
+  <div style="max-width:1180px; margin:0 auto 40px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+    <div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+        <span style="font-family:'Outfit',sans-serif; font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--color-sky-blue);">ZIDNY</span>
+        <span style="width:1px; height:18px; background:var(--border-strong);"></span>
+        <span class="zx-lbl">Design Workflow · Component Kit</span>
+      </div>
+      <h1 style="margin:0; font-weight:700; font-size:38px; letter-spacing:-.02em; color:var(--text-strong); line-height:1.05;">Shared Primitives</h1>
+      <p style="margin:10px 0 0; max-width:560px; font-size:15px; line-height:1.6; color:var(--text-muted);">The building blocks every screen reuses. Each is grounded in Zidny tokens — no invented colors, type, or spacing. The stage-status chip is the heart of the tool.</p>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <span class="z-badge z-badge--brand">3 role views</span>
+      <span class="z-badge z-badge--neutral">Stages 3–5</span>
+      <span class="z-badge z-badge--neutral">Brand · UI/UX · Campaign</span>
+    </div>
+  </div>
+
+  <div style="max-width:1180px; margin:0 auto; display:flex; flex-direction:column; gap:24px;">
+
+    <!-- ============ 1. STAGE STATUS CHIP ============ -->
+    <section style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); overflow:hidden;">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:24px 28px 18px; border-bottom:1px solid var(--divider);">
+        <div>
+          <div class="zx-lbl" style="color:var(--color-sky-blue);">01 · The core component</div>
+          <h2 style="margin:6px 0 0; font-weight:700; font-size:22px; letter-spacing:-.01em; color:var(--text-strong);">Stage-status chip</h2>
+        </div>
+        <div class="zx-note" style="max-width:340px; text-align:right;">Five states of the stage state machine. A freelancer can never self-advance — <em>Approved</em> is always an agency action after the validation meeting.</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px; padding:24px 28px;">
+        <!-- In progress -->
+        <div class="zx-swatch">
+          <span class="zx-chip" style="background:var(--sky-50); color:var(--color-primary-blue); border-color:var(--sky-100);"><span class="zx-dot"></span>In progress</span>
+          <div><div class="zx-lbl" style="margin-bottom:3px;">Freelancer working</div><div class="zx-note">Deliverables open for upload &amp; edit.</div></div>
+        </div>
+        <!-- Submitted -->
+        <div class="zx-swatch">
+          <span class="zx-chip" style="background:var(--color-sky-blue); color:#fff;">
+            <svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Submitted</span>
+          <div><div class="zx-lbl" style="margin-bottom:3px;">Sent for review</div><div class="zx-note">Deliverables lock. Agency notified.</div></div>
+        </div>
+        <!-- In review -->
+        <div class="zx-swatch">
+          <span class="zx-chip" style="background:var(--warning-soft); color:#9A6A12; border-color:#F1DCB0;"><span class="zx-dot"></span>In review</span>
+          <div><div class="zx-lbl" style="margin-bottom:3px;">Validation meeting</div><div class="zx-note">Agency is holding the review.</div></div>
+        </div>
+        <!-- Approved -->
+        <div class="zx-swatch">
+          <span class="zx-chip" style="background:var(--success-soft); color:var(--success); border-color:#BFE9D6;">
+            <svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Approved</span>
+          <div><div class="zx-lbl" style="margin-bottom:3px;">Next stage unlocked</div><div class="zx-note">Opens the next stage as In progress.</div></div>
+        </div>
+        <!-- Sent back -->
+        <div class="zx-swatch">
+          <span class="zx-chip" style="background:var(--danger-soft); color:var(--danger); border-color:#F3CEcb;">
+            <svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v3"/></svg>Sent back</span>
+          <div><div class="zx-lbl" style="margin-bottom:3px;">Returned for edits</div><div class="zx-note">Same stage reopens. No fee, no penalty.</div></div>
+        </div>
+        <!-- Locked -->
+        <div class="zx-swatch">
+          <span class="zx-chip" style="background:var(--neutral-100); color:var(--text-subtle); border-color:var(--border-subtle);">
+            <svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Locked</span>
+          <div><div class="zx-lbl" style="margin-bottom:3px;">Portal context / future stage</div><div class="zx-note">Stages 1–2 &amp; not-yet-open stages.</div></div>
+        </div>
+      </div>
+
+      <!-- On navy glass -->
+      <div style="padding:0 28px 28px;">
+        <div style="border-radius:var(--radius-lg); padding:22px 24px; background:var(--gradient-deep); box-shadow:var(--shadow-md); display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+          <span style="font-family:'Outfit',sans-serif; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.6);">On navy surfaces</span>
+          <span class="zx-chip" style="background:rgba(255,255,255,.14); color:#CFEAFA; border-color:rgba(255,255,255,.16);"><span class="zx-dot"></span>In progress</span>
+          <span class="zx-chip" style="background:var(--color-sky-blue); color:#fff;"><svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Submitted</span>
+          <span class="zx-chip" style="background:rgba(232,163,61,.22); color:#F4C97E; border-color:rgba(232,163,61,.3);"><span class="zx-dot"></span>In review</span>
+          <span class="zx-chip" style="background:rgba(31,169,113,.22); color:#7FE0B4; border-color:rgba(31,169,113,.32);"><svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Approved</span>
+          <span class="zx-chip" style="background:rgba(228,86,78,.22); color:#F1948E; border-color:rgba(228,86,78,.32);"><svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v3"/></svg>Sent back</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. TRACK + LEVEL ROW ============ -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+      <!-- Track chip -->
+      <section style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); padding:24px 28px 28px;">
+        <div class="zx-lbl" style="color:var(--color-sky-blue);">02 · Category</div>
+        <h2 style="margin:6px 0 4px; font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--text-strong);">Track chip</h2>
+        <p class="zx-note" style="margin:0 0 20px;">One shared 5-stage spine — the track only changes each stage's deliverables.</p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:var(--sky-50); color:var(--color-primary-blue); border-color:var(--sky-100);"><span class="zx-dot" style="background:var(--color-sky-blue);"></span>Brand</span>
+            <span class="zx-note">Identity, guidelines, collateral.</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:#EAFBFE; color:#0B6E86; border-color:#BFEEF7;"><span class="zx-dot" style="background:#17A0BE;"></span>UI/UX</span>
+            <span class="zx-note">Product design, systems, prototypes.</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:var(--surface-cream); color:#8A6A12; border-color:#F0E4B4;"><span class="zx-dot" style="background:#E8A33D;"></span>Campaign</span>
+            <span class="zx-note">High-volume social, print &amp; content.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Level badge -->
+      <section style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); padding:24px 28px 28px;">
+        <div class="zx-lbl" style="color:var(--color-sky-blue);">03 · Roster</div>
+        <h2 style="margin:6px 0 4px; font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--text-strong);">Freelancer level badge</h2>
+        <p class="zx-note" style="margin:0 0 20px;">Seniority, shown only to the agency — never to clients.</p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:var(--neutral-100); color:var(--text-muted); border-color:var(--border-subtle); text-transform:uppercase; letter-spacing:.06em; font-size:11px;">Junior</span>
+            <span class="zx-note">Learning — closely supervised.</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:var(--sky-50); color:var(--color-primary-blue); border-color:var(--sky-100); text-transform:uppercase; letter-spacing:.06em; font-size:11px;">Mid</span>
+            <span class="zx-note">Independent on standard scope.</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:var(--color-deep-navy); color:#fff; text-transform:uppercase; letter-spacing:.06em; font-size:11px;">Senior</span>
+            <span class="zx-note">Leads complex work &amp; direction.</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ 4. BUTTON STATES ============ -->
+    <section style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); padding:24px 28px 30px;">
+      <div class="zx-lbl" style="color:var(--color-sky-blue);">04 · Actions</div>
+      <h2 style="margin:6px 0 4px; font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--text-strong);">Submit &amp; review controls</h2>
+      <p class="zx-note" style="margin:0 0 22px;">Submit belongs to the freelancer; Approve / Send back belong to the agency.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+        <!-- Submit states -->
+        <div>
+          <div class="zx-lbl" style="margin-bottom:12px;">Submit stage — freelancer</div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <button class="z-btn z-btn--primary" style="height:44px;">Submit stage
+                <span style="display:inline-flex; margin-left:2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </button>
+              <span class="zx-note"><strong style="color:var(--text-body);">Enabled</strong> — all deliverables complete.</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <button class="z-btn z-btn--primary" disabled style="height:44px;">Submit stage</button>
+              <span class="zx-note"><strong style="color:var(--text-body);">Disabled</strong> — deliverables incomplete.</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <span class="z-btn z-btn--secondary" style="height:44px; cursor:default; pointer-events:none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M5 12l5 5L20 7"/></svg>Submitted · locked</span>
+              <span class="zx-note"><strong style="color:var(--text-body);">Submitted</strong> — awaiting agency.</span>
+            </div>
+          </div>
+        </div>
+        <!-- Approve / send back -->
+        <div>
+          <div class="zx-lbl" style="margin-bottom:12px;">Review outcome — agency</div>
+          <div style="display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
+            <button class="z-btn z-btn--primary" style="height:44px; background:var(--success); box-shadow:0 6px 18px rgba(31,169,113,.3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M5 12l5 5L20 7"/></svg>Approve · unlock next</button>
+            <button class="z-btn" style="height:44px; background:var(--danger-soft); color:var(--danger); border:1px solid #F3CECB;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v3"/></svg>Send back</button>
+          </div>
+          <div style="padding:12px 14px; border-radius:var(--radius-md); background:var(--surface-info); display:flex; gap:10px; align-items:flex-start;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-blue)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+            <span class="zx-note" style="color:var(--color-primary-blue);">Enabled only after the validation meeting is marked held.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. CHECKLIST + PROGRESS ROW ============ -->
+    <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:24px;">
+
+      <!-- Deliverables checklist -->
+      <section style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); padding:24px 28px 28px;">
+        <div class="zx-lbl" style="color:var(--color-sky-blue);">05 · Deliverables</div>
+        <h2 style="margin:6px 0 4px; font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--text-strong);">Checklist item</h2>
+        <p class="zx-note" style="margin:0 0 18px;">Pending → Uploaded → Awaiting review → Approved. <em>Needs rework</em> is the send-back path.</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <!-- pending -->
+          <div style="display:flex; align-items:center; gap:12px; padding:13px 15px; border-radius:var(--radius-md); border:1px dashed var(--border-strong); background:var(--surface-page);">
+            <span style="width:20px; height:20px; border-radius:6px; border:2px solid var(--border-strong); flex:none;"></span>
+            <span style="flex:1; font-size:14px; color:var(--text-muted);">Two Pinterest mood boards</span>
+            <span class="z-badge z-badge--neutral">Pending</span>
+          </div>
+          <!-- submitted -->
+          <div style="display:flex; align-items:center; gap:12px; padding:13px 15px; border-radius:var(--radius-md); border:1px solid var(--sky-100); background:var(--sky-50);">
+            <span style="width:20px; height:20px; border-radius:6px; background:var(--color-sky-blue); display:flex; align-items:center; justify-content:center; flex:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>
+            <span style="flex:1; font-size:14px; color:var(--text-body); font-weight:500;">Direction presentation.pdf</span>
+            <span class="z-badge z-badge--brand">Uploaded</span>
+          </div>
+          <!-- awaiting review (locked) -->
+          <div style="display:flex; align-items:center; gap:12px; padding:13px 15px; border-radius:var(--radius-md); border:1px solid var(--border-default); background:var(--surface-sunken);">
+            <span style="width:20px; height:20px; border-radius:6px; background:var(--neutral-500); display:flex; align-items:center; justify-content:center; flex:none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+            <span style="flex:1; font-size:14px; color:var(--text-body); font-weight:500;">Competitor content audit.pdf</span>
+            <span class="zx-chip" style="height:22px; padding:0 10px; font-size:11px; background:var(--neutral-150); color:var(--text-muted); border-color:var(--border-default);"><svg class="zx-ico" style="width:11px;height:11px;" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Awaiting review</span>
+          </div>
+          <!-- approved -->
+          <div style="display:flex; align-items:center; gap:12px; padding:13px 15px; border-radius:var(--radius-md); border:1px solid #BFE9D6; background:var(--success-soft);">
+            <span style="width:20px; height:20px; border-radius:6px; background:var(--success); display:flex; align-items:center; justify-content:center; flex:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>
+            <span style="flex:1; font-size:14px; color:var(--text-body); font-weight:500; text-decoration:line-through; text-decoration-color:rgba(31,169,113,.4);">Strategy document.pdf</span>
+            <span class="z-badge z-badge--success">Approved</span>
+          </div>
+          <!-- needs rework (send-back path) -->
+          <div style="display:flex; align-items:flex-start; gap:12px; padding:13px 15px; border-radius:var(--radius-md); border:1px solid #F3CECB; background:var(--danger-soft);">
+            <span style="width:20px; height:20px; border-radius:6px; background:var(--danger); display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 5 5v3"/></svg></span>
+            <div style="flex:1; min-width:0;">
+              <span style="font-size:14px; color:var(--text-body); font-weight:500;">Logo lockup.ai</span>
+              <div style="font-size:12px; color:var(--danger); margin-top:2px;">Agency: tighten the wordmark spacing &amp; re-export.</div>
+            </div>
+            <span class="z-badge z-badge--danger">Needs rework</span>
+          </div>
+        </div>
+
+        <!-- upload block -->
+        <div class="zx-lbl" style="margin:22px 0 12px;">File / link upload block</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="border:1.5px dashed var(--sky-200); border-radius:var(--radius-lg); background:var(--brand-soft); padding:26px; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center;">
+          <span style="width:42px; height:42px; border-radius:var(--radius-md); background:var(--sky-100); display:flex; align-items:center; justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary-blue)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 20h16"/></svg></span>
+          <span style="font-size:14px; font-weight:600; color:var(--color-primary-blue);">Drop files or paste a link</span>
+          <span class="zx-note">PDF, Figma, PNG, or a shared URL</span>
+        </div>
+        <!-- upload block · needs rework -->
+        <div style="border:1.5px solid #F3CECB; border-radius:var(--radius-lg); background:var(--danger-soft); padding:16px 18px; display:flex; align-items:center; gap:13px;">
+          <span style="width:38px; height:38px; border-radius:var(--radius-md); background:#F7D5D2; display:flex; align-items:center; justify-content:center; flex:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></span>
+          <div style="flex:1; min-width:0;">
+            <div style="font-size:13.5px; font-weight:600; color:var(--danger);">Re-upload requested</div>
+            <div class="zx-note" style="color:#B23C36;">Replace the flagged file, then re-submit the stage.</div>
+          </div>
+        </div>
+        </div>
+
+      <!-- Progress bar + list row -->
+      <section style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); padding:24px 28px 28px;">
+        <div class="zx-lbl" style="color:var(--color-sky-blue);">06 · Client-facing</div>
+        <h2 style="margin:6px 0 4px; font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--text-strong);">Progress bar</h2>
+        <p class="zx-note" style="margin:0 0 20px;">Read-only, across the five stages.</p>
+
+        <div style="margin-bottom:8px; display:flex; justify-content:space-between; align-items:baseline;">
+          <span style="font-size:13px; font-weight:600; color:var(--text-body);">Stage 4 · Design / Production</span>
+          <span class="zx-note">3 of 5 · 60%</span>
+        </div>
+        <div class="z-progress" style="height:10px;"><div class="z-progress__fill" style="width:60%;"></div></div>
+        <div style="display:flex; justify-content:space-between; margin-top:10px;">
+          <span class="zx-note" style="font-size:10.5px;">Strategy</span>
+          <span class="zx-note" style="font-size:10.5px;">Direction</span>
+          <span class="zx-note" style="font-size:10.5px; color:var(--color-primary-blue); font-weight:600;">Production</span>
+          <span class="zx-note" style="font-size:10.5px;">Delivery</span>
+        </div>
+
+        <div class="zx-lbl" style="margin:28px 0 12px;">Project list row</div>
+        <div style="border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:14px 16px; display:flex; align-items:center; gap:14px; box-shadow:var(--shadow-xs);">
+          <span style="width:40px; height:40px; border-radius:var(--radius-md); background:var(--gradient-sky); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:15px; flex:none;">NB</span>
+          <div style="flex:1; min-width:0;">
+            <div style="font-size:14px; font-weight:600; color:var(--text-strong);">Nomad Brew — Rebrand</div>
+            <div style="display:flex; gap:8px; align-items:center; margin-top:4px;">
+              <span class="zx-chip" style="height:20px; padding:0 9px; font-size:11px; background:var(--sky-50); color:var(--color-primary-blue); border-color:var(--sky-100);">Brand</span>
+              <span class="zx-chip" style="height:20px; padding:0 8px; font-size:11px; background:var(--danger-soft); color:var(--danger); border-color:#F3CECB;"><svg style="width:11px;height:11px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/></svg>Overdue · 2d</span>
+            </div>
+          </div>
+          <span class="zx-chip" style="background:var(--sky-50); color:var(--color-primary-blue); border-color:var(--sky-100); flex:none;"><span class="zx-dot"></span>In progress</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ 7. DEADLINE + ROSTER METRIC ROW ============ -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+      <!-- Deadline / overdue indicator -->
+      <section style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); padding:24px 28px 28px;">
+        <div class="zx-lbl" style="color:var(--color-sky-blue);">07 · Deadlines</div>
+        <h2 style="margin:6px 0 4px; font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--text-strong);">Deadline indicator</h2>
+        <p class="zx-note" style="margin:0 0 20px;">Reused on list rows, the stage tracker &amp; the admin table. Late is a metric only — no fee.</p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <!-- on-time / upcoming -->
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:var(--neutral-100); color:var(--text-muted); border-color:var(--border-subtle);"><svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/></svg>Due Jul 18</span>
+            <span class="zx-note"><strong style="color:var(--text-body);">On track</strong> — deadline ahead.</span>
+          </div>
+          <!-- due soon -->
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:var(--warning-soft); color:#9A6A12; border-color:#F1DCB0;"><svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/></svg>Due tomorrow</span>
+            <span class="zx-note"><strong style="color:var(--text-body);">Due soon</strong> — within 48h.</span>
+          </div>
+          <!-- overdue -->
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="zx-chip" style="background:var(--danger-soft); color:var(--danger); border-color:#F3CECB;"><svg class="zx-ico" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 1.5"/></svg>Overdue · 3 days</span>
+            <span class="zx-note"><strong style="color:var(--text-body);">Overdue</strong> — deadline passed.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roster metric: load + on-time rate -->
+      <section style="background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); padding:24px 28px 28px;">
+        <div class="zx-lbl" style="color:var(--color-sky-blue);">08 · Roster</div>
+        <h2 style="margin:6px 0 4px; font-weight:700; font-size:20px; letter-spacing:-.01em; color:var(--text-strong);">Load &amp; on-time rate</h2>
+        <p class="zx-note" style="margin:0 0 20px;">Compact, scannable in a roster row — agency compares at a glance when assigning.</p>
+
+        <!-- the primitive -->
+        <div style="display:inline-flex; align-items:stretch; gap:0; border:1px solid var(--border-subtle); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-xs); margin-bottom:20px;">
+          <!-- load -->
+          <div style="display:flex; align-items:center; gap:9px; padding:11px 15px; background:var(--surface-card);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5-8 4.5-8-4.5z"/><path d="M4 12l8 4.5 8-4.5"/><path d="M4 16.5l8 4.5 8-4.5"/></svg>
+            <div style="line-height:1.1;"><div style="font-size:15px; font-weight:700; color:var(--text-strong);">3</div><div style="font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-subtle);">active</div></div>
+            <span style="display:inline-flex; gap:3px; margin-left:4px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--color-sky-blue);"></span><span style="width:6px;height:6px;border-radius:50%;background:var(--color-sky-blue);"></span><span style="width:6px;height:6px;border-radius:50%;background:var(--color-sky-blue);"></span><span style="width:6px;height:6px;border-radius:50%;background:var(--neutral-200);"></span><span style="width:6px;height:6px;border-radius:50%;background:var(--neutral-200);"></span></span>
+          </div>
+          <!-- divider -->
+          <div style="width:1px; background:var(--border-subtle);"></div>
+          <!-- on-time -->
+          <div style="display:flex; align-items:center; gap:9px; padding:11px 15px; background:var(--surface-card);">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--success);flex:none;"></span>
+            <div style="line-height:1.1;"><div style="font-size:15px; font-weight:700; color:var(--text-strong);">92%</div><div style="font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-subtle);">on-time</div></div>
+          </div>
+        </div>
+
+        <!-- shown in context -->
+        <div class="zx-lbl" style="margin-bottom:10px;">In a roster row</div>
+        <div style="border:1px solid var(--border-subtle); border-radius:var(--radius-lg); padding:12px 16px; display:flex; align-items:center; gap:13px; box-shadow:var(--shadow-xs);">
+          <span style="width:38px; height:38px; border-radius:50%; background:var(--color-deep-navy); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; flex:none;">AK</span>
+          <div style="flex:1; min-width:0;">
+            <div style="font-size:14px; font-weight:600; color:var(--text-strong);">Amira Kaci</div>
+            <span class="zx-chip" style="height:19px; padding:0 8px; font-size:10.5px; background:var(--color-deep-navy); color:#fff; text-transform:uppercase; letter-spacing:.05em; margin-top:3px;">Senior</span>
+          </div>
+          <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 12px; border-radius:var(--radius-sm); background:var(--surface-page);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5-8 4.5-8-4.5z"/><path d="M4 12l8 4.5 8-4.5"/><path d="M4 16.5l8 4.5 8-4.5"/></svg>
+            <span style="font-size:13px; font-weight:700; color:var(--text-strong);">3</span>
+            <span style="width:1px;height:14px;background:var(--border-default);"></span>
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--success);"></span>
+            <span style="font-size:13px; font-weight:700; color:var(--text-strong);">92%</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <p class="zx-note" style="text-align:center; margin:16px 0 0;">Primitives locked from Zidny tokens. Next: Freelancer view → Agency/Admin view → Client view.</p>
+  </div>
+</div>
+</x-dc>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Zidny Workflow - Primitives";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
+
